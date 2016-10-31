@@ -1,7 +1,10 @@
-alphabet = [",","-",".","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
-            "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+alphabet = [",","-",".","A","B","C","D","E","F","G","H","I","J","K","L","M","N",
+            "O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e",
+            "f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v",
+            "w","x","y","z"]
 
-alphabet2 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+alphabet2 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q",
+            "R","S","T","U","V","W","X","Y","Z"]
 
 
 def generatingNewKey(s, n, string):
@@ -33,23 +36,23 @@ def generatingNewKey(s, n, string):
         totalSize +=1
     return out
 
-def asciiEncrpytion(msg, newSecret):
-    saida = ""
-    for i in range(len(msg)):
-        print i
-        h = (ord(msg[i]) - 65) + (ord(newSecret[i]) - 65)
-        h = h % 26
-        print("%c", h + 65)
-        char = h + 65
-        saida = saida + chr(char)
-    print saida
+# def asciiEncrpytion(msg, newSecret):
+#     saida = ""
+#     for i in range(len(msg)):
+#         print i
+#         h = (ord(msg[i]) - 65) + (ord(newSecret[i]) - 65)
+#         h = h % 26
+#         print("%c", h + 65)
+#         char = h + 65
+#         saida = saida + chr(char)
+#     print saida
 
 def alphabetEncryption(msg, newSecret):
     out = ""
     for i in range(len(msg)):
         #print msg,msg[i],newSecret,newSecret[i]
         h = alphabet.index(msg[i]) + alphabet.index(newSecret[i])
-        h = h % 26;
+        h = h % 55;
         result = alphabet[h]
         out = out + result
     #print out
@@ -60,7 +63,7 @@ def alphabetDecryption(msg, newSecret):
     for i in range(len(msg)):
         #print msg,msg[i],newSecret,newSecret[i]
         h = alphabet.index(msg[i]) - alphabet.index(newSecret[i])
-        h = h % 26;
+        h = h % 55;
         result = alphabet[h]
         out = out + result
     #print out
